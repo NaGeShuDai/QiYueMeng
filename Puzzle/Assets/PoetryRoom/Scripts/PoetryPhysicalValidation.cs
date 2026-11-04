@@ -69,7 +69,7 @@ public sealed class PoetryPhysicalValidation:MonoBehaviour {
   yield return Click(1,"cargo",0);yield return Click(1,"cross");Check(g.State.boatBank==0,"unsafe crossing auto resets");
   foreach(int cargo in new[]{1,-1,0,1,2,-1,1}){if(cargo>=0)yield return Click(1,"cargo",cargo);yield return Click(1,"cross");}
   Check(g.State.solved[1],"river solved exclusively on model");yield return Rewards(1);
-  yield return Focus(2);yield return Install(2,"compass");for(int i=0;i<3;i++)for(int k=0;k<new[]{1,5,3}[i];k++)yield return Click(2,"compass",i);
+  yield return Focus(2);yield return Install(2,"compass");for(int i=0;i<3;i++)for(int k=0;k<new[]{1,3,3}[i];k++)yield return Click(2,"compass",i);
   Check(g.State.solved[2],"compasses auto unlock");yield return Rewards(2);
   yield return Focus(3);yield return Install(3,"bulb");yield return Click(3,"reset");
   for(int i=0;i<9;i++){int n=(4-g.State.wires[i])%4;for(int j=0;j<n&&!g.State.solved[3];j++)yield return Click(3,"wire",i);}

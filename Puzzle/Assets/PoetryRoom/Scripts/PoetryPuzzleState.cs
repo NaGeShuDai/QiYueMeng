@@ -5,7 +5,7 @@ using System.Linq;
 [Serializable]
 public sealed class PoetryPuzzleState
 {
- public int version=4;
+ public int version=5;
  public bool legacyBlockOrder;
  public bool ShuffledBlocks=>version>=3&&!legacyBlockOrder;
  public string RewardBlock(int stage){int index=stage==0?0:stage==2?1:stage==4?2:3;return "block"+(ShuffledBlocks?new[]{2,0,3,1}[index]:index);}
@@ -20,7 +20,7 @@ public sealed class PoetryPuzzleState
  public int[] wires={1,2,1,3,2,0,2,1,3};
  public static int[] InitialMoons()=>new[]{1,1,0,1,0,0};
  public int[] moons=InitialMoons();
- public void Upgrade(){if(version>=4)return;legacyBlockOrder=version<3;if(version<2){if(!solved[4])letters=new[]{1,1,1,1};if(!solved[5])moons=InitialMoons();}digits=solved[0]?new[]{5,6,8}:new int[3];compass=solved[2]?new[]{1,5,3}:new int[3];if(solved[6])order=new[]{"stone","moon","boat","pine"};version=4;}
+ public void Upgrade(){if(version>=5)return;if(version==4){if(solved[2])compass=new[]{1,3,3};version=5;return;}legacyBlockOrder=version<3;if(version<2){if(!solved[4])letters=new[]{1,1,1,1};if(!solved[5])moons=InitialMoons();}digits=solved[0]?new[]{5,6,8}:new int[3];compass=solved[2]?new[]{1,3,3}:new int[3];if(solved[6])order=new[]{"stone","moon","boat","pine"};version=5;}
  public string[] order=new string[4], blocks=new string[4];
  public int[] riverBanks=new int[3];
  public int boatBank, cargo=-1;
@@ -50,7 +50,7 @@ public sealed class PoetryPuzzleState
   switch(stage){
    case 0:pass=digits.SequenceEqual(new[]{5,6,8});break;
    case 1:pass=installed[1]&&riverBanks.All(b=>b==1);break;
-   case 2:pass=installed[2]&&compass.SequenceEqual(new[]{1,5,3});break;
+   case 2:pass=installed[2]&&compass.SequenceEqual(new[]{1,3,3});break;
    case 3:pass=installed[3]&&WireConnected();break;
    case 4:pass=Word=="LOVE";break;
    case 5:pass=installed[5]&&moons.All(v=>v==1);break;
@@ -84,5 +84,5 @@ public sealed class PoetryPuzzleState
   }}
   return seen.Contains(0)&&seen.Contains(4)&&seen.Contains(8);
  }
- public bool Valid()=>(version>=1&&version<=4)&&solved?.Length==8&&installed?.Length==8&&digits?.Length==3&&compass?.Length==3&&letters?.Length==4&&wires?.Length==9&&moons?.Length==6&&order?.Length==4&&blocks?.Length==4&&riverBanks?.Length==3&&inventory!=null&&found!=null&&cargo>=-1&&cargo<3&&boatBank>=0&&boatBank<=1&&digits.All(x=>x>=0&&x<10)&&compass.All(x=>x>=0&&x<(version>=4?8:4))&&letters.All(x=>x>=0&&x<6)&&wires.All(x=>x>=0&&x<4)&&moons.All(x=>x==0||x==1)&&riverBanks.All(x=>x==0||x==1);
+ public bool Valid()=>(version>=1&&version<=5)&&solved?.Length==8&&installed?.Length==8&&digits?.Length==3&&compass?.Length==3&&letters?.Length==4&&wires?.Length==9&&moons?.Length==6&&order?.Length==4&&blocks?.Length==4&&riverBanks?.Length==3&&inventory!=null&&found!=null&&cargo>=-1&&cargo<3&&boatBank>=0&&boatBank<=1&&digits.All(x=>x>=0&&x<10)&&compass.All(x=>x>=0&&x<(version>=4?8:4))&&letters.All(x=>x>=0&&x<6)&&wires.All(x=>x>=0&&x<4)&&moons.All(x=>x==0||x==1)&&riverBanks.All(x=>x==0||x==1);
 }

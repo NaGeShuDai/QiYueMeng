@@ -15,6 +15,8 @@ public sealed class EndingPortal : MonoBehaviour
     Font font;
     public bool IsTransitioning => transition != null;
     public bool suppressBrowserForValidation;
+    public string LastBrowserError { get; private set; }
+    public string LastOpenedPath { get; private set; }
     public int LaunchCount { get; private set; }
     public string WebsitePath => Path.Combine(Application.streamingAssetsPath, "OurStory", "index.html");
 
@@ -63,9 +65,31 @@ public sealed class EndingPortal : MonoBehaviour
 
     public void OpenWebsite()
     {
-        if (!File.Exists(WebsitePath)) { game.Tell("纪念网页未找到，请检查 StreamingAssets/OurStory。"); Debug.LogError("Missing website: " + WebsitePath); return; }
-        LaunchCount++;
-        if (!suppressBrowserForValidation) Application.OpenURL(new Uri(Path.GetFullPath(WebsitePath)).AbsoluteUri);
+        LastBrowserError = null;
+        string path = Path.GetFullPath(WebsitePath);
+        if (!File.Exists(path)) {
+            LastBrowserError = "Missing website: " + path;
+            game.Tell("网页文件不完整，请完整解压游戏后重试。");
+            Debug.LogError(LastBrowserError);return;
+        }
+        try {
+            if (!suppressBrowserForValidation) {
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
+                // Let the Windows shell open the local HTML path directly, including Chinese and spaces.
+                using (var process = System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo {
+                    FileName = path, UseShellExecute = true, WorkingDirectory = Path.GetDirectoryName(path)
+                })) { }
+#else
+                Application.OpenURL(new Uri(path).AbsoluteUri);
+#endif
+            }
+            LastOpenedPath = path;LaunchCount++;
+            Debug.Log("ENDING_BROWSER_OPEN_REQUESTED " + path);
+        } catch (Exception e) {
+            LastBrowserError = e.Message;
+            game.Tell("网页未能打开，可在游戏目录双击“打开纪念网页”。");
+            Debug.LogError("Opening ending website failed: " + e);
+        }
     }
 
     void OnGUI()
