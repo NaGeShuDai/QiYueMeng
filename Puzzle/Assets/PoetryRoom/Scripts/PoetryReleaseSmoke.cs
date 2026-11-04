@@ -9,6 +9,8 @@ public sealed class PoetryReleaseSmoke:MonoBehaviour {
  public void Run(string path,bool quit){StartCoroutine(Check(path,quit));}
  IEnumerator Check(string path,bool quit){
   yield return null;yield return null;
+  while(!UnityEngine.Rendering.SplashScreen.isFinished)yield return null;
+  yield return new WaitForSecondsRealtime(1f);
   var results=new List<string>();var v=FindFirstObjectByType<RoomViewController>();
   float distance=v.distance,yaw=v.yaw,pitch=v.pitch;
   try{
