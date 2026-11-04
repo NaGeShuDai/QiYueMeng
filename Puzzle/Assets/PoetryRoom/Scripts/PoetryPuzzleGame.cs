@@ -41,7 +41,7 @@ public sealed class PoetryPuzzleGame:MonoBehaviour
  public Transform Node(int stage,string name)=>stations[stage].model.GetComponentsInChildren<Transform>(true).FirstOrDefault(t=>t.name==name||t.name.StartsWith(name+".",StringComparison.Ordinal));
  public bool BlocksPointer(Vector2 screen){
   var point=new Vector2(screen.x,Screen.height-screen.y);
-  if(ResetProgressRect.Contains(point))return true;
+  if(ResetProgressRect.Contains(point)||QuitGameRect.Contains(point))return true;
   if(State.escaped&&new Rect(Screen.width/2f-240,Screen.height-112,480,96).Contains(point))return true;
   if(State.escaped)return false;
   if(InventoryPanelRect.Contains(point))return true;
@@ -196,7 +196,16 @@ public sealed class PoetryPuzzleGame:MonoBehaviour
  GUIStyle resetStyle;
  Font resetFont;
  Texture2D selectionArrow;
- public Rect ResetProgressRect=>new Rect(Screen.width-148,16,132,42);
+ public Rect ResetProgressRect=>new Rect(Screen.width-288,16,132,42);
+ public Rect QuitGameRect=>new Rect(Screen.width-148,16,132,42);
+ public void QuitGame(){
+  if(persist){PlayerPrefs.SetString(SaveKey,JsonUtility.ToJson(State));PlayerPrefs.Save();}
+#if UNITY_EDITOR
+  UnityEditor.EditorApplication.isPlaying=false;
+#else
+  Application.Quit();
+#endif
+ }
  int InventorySlots=>Mathf.Max(6,State.inventory.Count);
  float InventorySize=>Mathf.Min(72,(Screen.height-104f)/InventorySlots-7);
  public Rect InventoryPanelRect=>new Rect(Screen.width-InventorySize-52,74,InventorySize+40,InventorySlots*(InventorySize+7)+12);
@@ -206,6 +215,7 @@ public sealed class PoetryPuzzleGame:MonoBehaviour
  }
  public void ClickInventory(Vector2 screen){
   var point=new Vector2(screen.x,Screen.height-screen.y);
+  if(QuitGameRect.Contains(point)){QuitGame();return;}
   if(ResetProgressRect.Contains(point)){ResetProgress();return;}
   if(State.escaped)return;
   for(int i=0;i<State.inventory.Count;i++)if(InventoryRect(i).Contains(point)){string id=State.inventory[i];Select(Selected==id?"":id);return;}
@@ -221,6 +231,7 @@ public sealed class PoetryPuzzleGame:MonoBehaviour
   var buttonColor=GUI.backgroundColor;
   GUI.backgroundColor=new Color(.48f,.32f,.19f,1);
   GUI.Label(ResetProgressRect,"重置进度",resetStyle);
+  GUI.Label(QuitGameRect,"退出游戏",resetStyle);
   GUI.backgroundColor=buttonColor;
   if(State.escaped)return;
   var originalColor=GUI.color;

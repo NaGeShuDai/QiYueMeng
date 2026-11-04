@@ -103,7 +103,7 @@ public sealed class EndingPortal : MonoBehaviour
         }
         GUI.Label(new Rect(Screen.width / 2f - 230, Screen.height - 106, 460, 38),
             IsTransitioning ? "穿过这扇门，是我们的故事……" : "第七码头 · 故事仍在继续", label);
-        if (!IsTransitioning && GUI.Button(new Rect(Screen.width / 2f - 100, Screen.height - 62, 200, 34), "打开纪念网页 ↗", button)) OpenWebsite();
+        if (!IsTransitioning && GUI.Button(new Rect(Screen.width / 2f - 100, Screen.height - 62, 200, 34), "去往目的地", button)) OpenWebsite();
     }
 
     void OnDestroy() { if (portal) Destroy(portal); if (material) Destroy(material); if (font) Destroy(font); }
