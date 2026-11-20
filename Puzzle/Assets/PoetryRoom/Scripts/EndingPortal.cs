@@ -77,7 +77,7 @@ public sealed class EndingPortal : MonoBehaviour
 #if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
                 // Let the Windows shell open the local HTML path directly, including Chinese and spaces.
                 using (var process = System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo {
-                    FileName = path, UseShellExecute = true, WorkingDirectory = Path.GetDirectoryName(path)
+                    FileName = "powershell.exe", Arguments = "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File \"" + Path.Combine(Path.GetDirectoryName(path), "launch.ps1") + "\"", UseShellExecute = true, WorkingDirectory = Path.GetDirectoryName(path), WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden
                 })) { }
 #else
                 Application.OpenURL(new Uri(path).AbsoluteUri);

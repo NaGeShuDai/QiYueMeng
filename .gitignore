@@ -15,3 +15,12 @@
 *.zip
 .env*
 .DS_Store
+
+# Private memorial data and generated caches
+__pycache__/
+*.pyc
+*.blend1
+_res/
+Puzzle/Assets/StreamingAssets/OurStory/data/*
+!Puzzle/Assets/StreamingAssets/OurStory/data/collection.json
+!Puzzle/Assets/StreamingAssets/OurStory/data/README.md

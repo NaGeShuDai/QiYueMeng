@@ -1,3 +1,2 @@
 @echo off
-set "ENTRY=%~dp0entry.html"
-start "" "%ENTRY%"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0launch.ps1"

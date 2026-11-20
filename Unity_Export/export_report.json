@@ -1,0 +1,14 @@
+{
+  "room_meshes": 426,
+  "forest_meshes": 102,
+  "portal_meshes": 1,
+  "vertices": 99725,
+  "triangles": 184248,
+  "baked_basecolor": "Textures/Room_BaseColor.png",
+  "texture_resolution": 4096,
+  "fbx_files": {
+    "Poetry_Escape_Room_Complete.fbx": 11972252,
+    "Poetry_Escape_Room_Interior.fbx": 10730700,
+    "Poetry_Forest.fbx": 1253580
+  }
+}

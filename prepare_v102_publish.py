@@ -1,0 +1,2 @@
+from pathlib import Path
+p=Path('release_v101.py');s=p.read_text(encoding='utf-8-sig').replace('v1.0.1','v1.0.2').replace('release_v101.json','release_v102.json').replace('指南针与结尾网页修复','新图标与退出按钮').replace('第二枚指南针答案改为东南；Windows 结尾网页改由系统直接打开本地 HTML，支持中文及空格路径。保留旧存档进度。已在独立 EXE 中使用最终钥匙开门并确认浏览器打开结尾页面。附带打开纪念网页.bat备用入口。请完整解压运行，配套七月梦.pdf已随包附送。','新增 APIClaude 生成的木门月光码头图标并嵌入 Windows EXE；通关按钮改为“去往目的地”；右上角新增“退出游戏”，退出前保存进度。已验证程序图标及独立 EXE 实际点击退出。保留 v1.0.1 的指南针答案和结尾网页修复。完整解压后运行七月梦.exe，七月梦.pdf已随包附送。');Path('release_v102.py').write_text(s,encoding='utf-8')

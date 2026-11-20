@@ -1,0 +1,204 @@
+{
+  "status": "passed",
+  "fbx_files": [
+    {
+      "file": "Exports/P01_NumberLock.fbx",
+      "meshes": 59,
+      "embedded_texture_bytes": [
+        1108063
+      ],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/P02_RiverCrossing.fbx",
+      "meshes": 52,
+      "embedded_texture_bytes": [
+        1108063
+      ],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/P03_CompassBoard.fbx",
+      "meshes": 121,
+      "embedded_texture_bytes": [
+        1108063
+      ],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/P04_WiringLamp.fbx",
+      "meshes": 76,
+      "embedded_texture_bytes": [
+        1108063
+      ],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/P05_WordBox.fbx",
+      "meshes": 53,
+      "embedded_texture_bytes": [
+        1108063
+      ],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/P06_MoonMechanism.fbx",
+      "meshes": 48,
+      "embedded_texture_bytes": [
+        1108063
+      ],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/P07_ObjectSequence.fbx",
+      "meshes": 84,
+      "embedded_texture_bytes": [
+        1108063
+      ],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/P08_FinalWoodBox.fbx",
+      "meshes": 19,
+      "embedded_texture_bytes": [
+        1108063
+      ],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/P09_ClueCards.fbx",
+      "meshes": 14,
+      "embedded_texture_bytes": [],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/Items/Pickup_WindingKey.fbx",
+      "meshes": 3,
+      "embedded_texture_bytes": [],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/Items/Pickup_WoodBlock_第.fbx",
+      "meshes": 3,
+      "embedded_texture_bytes": [
+        1108063
+      ],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/Items/Token_Chicken.fbx",
+      "meshes": 5,
+      "embedded_texture_bytes": [],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/Items/Token_Fox.fbx",
+      "meshes": 9,
+      "embedded_texture_bytes": [],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/Items/Token_Grain.fbx",
+      "meshes": 4,
+      "embedded_texture_bytes": [],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/Items/Compass_2.fbx",
+      "meshes": 25,
+      "embedded_texture_bytes": [],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/Items/Pickup_WoodBlock_七.fbx",
+      "meshes": 3,
+      "embedded_texture_bytes": [
+        1108063
+      ],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/Items/Pickup_LightBulb.fbx",
+      "meshes": 7,
+      "embedded_texture_bytes": [],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/Items/Pickup_WoodBlock_码.fbx",
+      "meshes": 3,
+      "embedded_texture_bytes": [
+        1108063
+      ],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/Items/Pickup_MoonDisc.fbx",
+      "meshes": 2,
+      "embedded_texture_bytes": [
+        1108063
+      ],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/Items/Pickup_Boat.fbx",
+      "meshes": 4,
+      "embedded_texture_bytes": [
+        1108063
+      ],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/Items/Pickup_Moon.fbx",
+      "meshes": 3,
+      "embedded_texture_bytes": [
+        1108063
+      ],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/Items/Pickup_Pine.fbx",
+      "meshes": 42,
+      "embedded_texture_bytes": [
+        1108063
+      ],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/Items/Pickup_Stone.fbx",
+      "meshes": 2,
+      "embedded_texture_bytes": [
+        1108063
+      ],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/Items/Pickup_TrayHandle.fbx",
+      "meshes": 3,
+      "embedded_texture_bytes": [],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/Items/Pickup_WoodBlock_头.fbx",
+      "meshes": 3,
+      "embedded_texture_bytes": [
+        1108063
+      ],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/Items/Pickup_ExitKey.fbx",
+      "meshes": 3,
+      "embedded_texture_bytes": [],
+      "uv_complete": true
+    },
+    {
+      "file": "Exports/PuzzleProps_All.fbx",
+      "meshes": 526,
+      "embedded_texture_bytes": [
+        1108063
+      ],
+      "uv_complete": true
+    }
+  ],
+  "moon_solution_verified": true
+}

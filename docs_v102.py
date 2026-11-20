@@ -1,0 +1,3 @@
+from pathlib import Path
+p=Path('Publish/QiYueMeng/README.md');s=p.read_text(encoding='utf-8');s=s.replace('## v1.0.1 更新','## v1.0.2 更新\n\n- 新增木门、月光与码头主题的 Windows 程序图标。\n- 通关按钮改为“去往目的地”。\n- 右上角新增“退出游戏”，退出前保存当前进度。\n\n## v1.0.1 更新');s=s.replace('- 窗口模式可使用 Alt+Enter 切换；关闭游戏使用 Alt+F4。','- 右上角“退出游戏”：保存进度并退出；也可使用 Alt+F4。\n- 窗口模式可使用 Alt+Enter 切换。');p.write_text(s,encoding='utf-8')
+p=Path('Release/七月梦/游玩说明.txt');s=p.read_text(encoding='utf-8-sig').replace('Alt+Enter：切换窗口；Alt+F4：退出。','右上角“退出游戏”：保存进度并关闭。\nAlt+Enter：切换窗口；Alt+F4：退出。').replace('通关后会打开随附的本地结尾网页。','通关后会打开随附的本地结尾网页，也可点击“去往目的地”。');p.write_text(s,encoding='utf-8-sig')

@@ -25,8 +25,7 @@ Unity 6000.6.6f1，Windows x64。使用 Unity Hub 打开 `Puzzle`，加载
 `Assets/PoetryRoom/Scenes/PoetryBedroom.unity`。
 菜单 `Tools > Poetry Room > Build Windows Release` 构建 Windows 版本。
 
-项目不依赖本机 Blender 或 Unity MCP；几何与贴图已作为资源包含。
-本库只保留当前项目及最终诗集，不包含旧诗集、编辑器缓存、过程截图和本地工具包。
+游戏资源已包含；编辑 Blender 原模型才需要 Blender。2026-11-20 已补齐本地开发源码、LocalPackages、原始模型与制作脚本。恢复步骤和备份边界见 `RESTORE.md`。
 
 ## v1.0.2 更新
 
